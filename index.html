@@ -1,9 +1,1224 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovation Loop Weeks - Out of the Box</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Hind:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Hind', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+        }
+        
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        .cta-button {
+            background: white;
+            color: #6c5ce7;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #6c5ce7;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover, .btn-secondary:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Process Section */
+        .process {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #2d3436;
+        }
+        
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .process-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 3px solid transparent;
+        }
+        
+        .process-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(108, 92, 231, 0.1);
+            border-color: #6c5ce7;
+        }
+        
+        .process-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .process-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2d3436;
+        }
+        
+        .process-card p {
+            color: #636e72;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        /* AI Mentors Section */
+        .ai-mentors {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .mentors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .mentor-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .mentor-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .mentor-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .mentor-card h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2d3436;
+        }
+        
+        .mentor-card p {
+            color: #636e72;
+            font-size: 0.9rem;
+        }
+        
+        /* Demo Section */
+        .demo {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .demo-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .demo-form {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px solid #e9ecef;
+        }
+        
+        .demo-form h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #2d3436;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #2d3436;
+        }
+        
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none;
+            border-color: #6c5ce7;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+            color: white;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        .testimonial-company {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #2d3436;
+        }
+        
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #636e72;
+            margin-bottom: 20px;
+        }
+        
+        .about-image {
+            text-align: center;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        
+        .contact-info h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #2d3436;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .contact-details h4 {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #2d3436;
+        }
+        
+        .contact-details p {
+            color: #636e72;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2d3436;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section a {
+            color: #b2bec3;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: #a29bfe;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #636e72;
+            padding-top: 20px;
+            color: #b2bec3;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .demo-container, .about-content, .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-on-scroll {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        /* Session Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 40px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            color: #6c5ce7;
+        }
+        
+        .session-step {
+            display: none;
+        }
+        
+        .session-step.active {
+            display: block;
+        }
+        
+        .session-step h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #2d3436;
+        }
+        
+        .tech-interests {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .interest-card {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .interest-card:hover {
+            border-color: #6c5ce7;
+            background: #f8f9fa;
+        }
+        
+        .interest-card.selected {
+            border-color: #6c5ce7;
+            background: #6c5ce7;
+            color: white;
+        }
+        
+        .step-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: flex-end;
+        }
+        
+        .step-btn {
+            padding: 12px 24px;
+            border: 2px solid #6c5ce7;
+            background: white;
+            color: #6c5ce7;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .step-btn:hover, .step-btn.primary {
+            background: #6c5ce7;
+            color: white;
+        }
+        
+        .step-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        /* Hack Week Section */
+        .hack-week {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+            color: white;
+        }
+        
+        .hack-challenge {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .hack-challenge h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .challenge-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px auto;
+            max-width: 800px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .challenge-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .prize-badge {
+            background: #fdcb6e;
+            color: #2d3436;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            display: inline-block;
+            margin: 20px 0;
+        }
+        
+        .team-section {
+            display: none;
+            margin-top: 40px;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .team-member {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .member-avatar {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .member-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .member-role {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .ai-mentor-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .ai-mentor-section h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        /* Success message */
+        .success-message {
+            background: #00b894;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        
+        .voting-section {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 40px;
+        }
+        
+        .idea-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 2px solid #e9ecef;
+            transition: border-color 0.3s ease;
+        }
+        
+        .idea-card:hover {
+            border-color: #6c5ce7;
+        }
+        
+        .vote-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .vote-btn {
+            padding: 8px 16px;
+            border: 2px solid #6c5ce7;
+            background: white;
+            color: #6c5ce7;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .vote-btn:hover {
+            background: #6c5ce7;
+            color: white;
+        }
+        
+        .vote-btn.voted {
+            background: #6c5ce7;
+            color: white;
+        }
+        
+        .vote-count {
+            font-size: 0.9rem;
+            color: #636e72;
+            margin-top: 10px;
+        }
+    </style>
+</head>
 <body>
-  <h1>Mayayo</h1>
-  <p>Welcome to my website!</p>
-  <img src="https://content.codecademy.com/articles/github-pages-via-web-app/happy-ice-cream.gif" />
-</body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCA1MCA1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiByeD0iMTAiIGZpbGw9IiM2YzVjZTciLz4KPHN2ZyB4PSIxMCIgeT0iMTAiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJ3aGl0ZSI+CjxwYXRoIGQ9Ik0xMiAyTDEzLjA5IDguMjZMMjAgOUwxMy4wOSAxNS43NEwxMiAyMkwxMC45MSAxNS43NEw0IDlMMTAuOTEgOC4yNkwxMiAyWiIvPgo8L3N2Zz4KPC9zdmc+" alt="Out of the Box Logo">
+                <span class="logo-text">OUT OF THE BOX</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#hack-week">Hack Week</a></li>
+                <li><a href="#demo">Demo</a></li>
+                <li><a href="#testimonials">Success Stories</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact" class="cta-button">Get Started</a></li>
+            </ul>
+        </nav>
+    </header>
 
-</html>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Innovation Loop Weeks</h1>
+            <p>Bridge generational gaps and accelerate innovation with our structured cross-generational collaboration platform</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn-primary" onclick="openStartSession()">Start Session</a>
+                <a href="#process" class="btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process">
+        <div class="container">
+            <h2 class="section-title">How Innovation Loop Weeks Work</h2>
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-icon">💡</div>
+                    <h3>Anonymous Submission</h3>
+                    <p>Gen Z and younger developers submit innovative ideas anonymously through our platform. Ideas are tagged and categorized for easy evaluation.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-icon">🗳️</div>
+                    <h3>Feasibility Voting</h3>
+                    <p>Senior engineers and Gen X team members evaluate ideas based on feasibility, scalability, and strategic alignment through our voting system.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-icon">🤝</div>
+                    <h3>Cross-Gen Hack Week</h3>
+                    <p>Selected ideas move to intensive hack weeks with mixed teams featuring Gen Z "trend champions" and Gen X "systems leads".</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-icon">🚀</div>
+                    <h3>Integration & Reflection</h3>
+                    <p>Prototypes are assessed for implementation while insights are documented in our shared innovation archive for continuous learning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Mentors Section -->
+    <section id="ai-mentors" class="ai-mentors">
+        <div class="container">
+            <h2 class="section-title">AI-Powered Mentorship</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: #636e72; margin-bottom: 40px;">
+                Each team is guided by AI mentors based on legendary figures from different tech eras
+            </p>
+            <div class="mentors-grid">
+                <div class="mentor-card">
+                    <div class="mentor-avatar">AJ</div>
+                    <h4>Alan Turing Mentor</h4>
+                    <p>Focuses on computational thinking and problem-solving fundamentals</p>
+                </div>
+                <div class="mentor-card">
+                    <div class="mentor-avatar">SJ</div>
+                    <h4>Steve Jobs Mentor</h4>
+                    <p>Emphasizes user experience and innovative design thinking</p>
+                </div>
+                <div class="mentor-card">
+                    <div class="mentor-avatar">BG</div>
+                    <h4>Bill Gates Mentor</h4>
+                    <p>Guides on scalability and business impact of technical solutions</p>
+                </div>
+                <div class="mentor-card">
+                    <div class="mentor-avatar">LT</div>
+                    <h4>Linus Torvalds Mentor</h4>
+                    <p>Promotes open collaboration and code quality best practices</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hack Week Section -->
+    <section id="hack-week" class="hack-week">
+        <div class="container">
+            <div class="hack-challenge">
+                <h2>🚀 Hack Week Challenge</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 30px;">This Month's Innovation Challenge</p>
+                
+                <div class="challenge-card">
+                    <h3 class="challenge-title">Smart Energy Optimization for Mexican Cities</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px;">
+                        Design and prototype an AI-powered system that optimizes energy consumption in Mexican urban areas. 
+                        The solution should integrate renewable energy sources, predict consumption patterns, and reduce 
+                        energy waste by at least 25% while considering Mexico's unique climate and infrastructure challenges.
+                    </p>
+                    <div class="prize-badge">🏆 Grand Prize: 4-Day Vacation to Tulum for the Winning Team!</div>
+                    <p style="margin-top: 20px; font-size: 1rem; opacity: 0.9;">
+                        <strong>Duration:</strong> 5 days | <strong>Teams:</strong> 4-6 members | <strong>Deadline:</strong> August 15, 2025
+                    </p>
+                    <button class="btn-primary" onclick="showTeamSection()" style="margin-top: 30px; background: white; color: #00b894;">
+                        Meet My Team
+                    </button>
+                </div>
+                
+                <div class="team-section" id="teamSection">
+                    <h3 style="text-align: center; margin-bottom: 30px;">Your Assigned Team</h3>
+                    <div class="team-grid">
+                        <div class="team-member">
+                            <div class="member-avatar">SG</div>
+                            <div class="member-name">Sofia Guerrero</div>
+                            <div class="member-role">Frontend Developer (Gen Z)</div>
+                        </div>
+                        <div class="team-member">
+                            <div class="member-avatar">DR</div>
+                            <div class="member-name">Diego Ramirez</div>
+                            <div class="member-role">Backend Engineer (Gen X)</div>
+                        </div>
+                        <div class="team-member">
+                            <div class="member-avatar">LP</div>
+                            <div class="member-name">Luna Peralta</div>
+                            <div class="member-role">AI/ML Specialist (Gen Z)</div>
+                        </div>
+                        <div class="team-member">
+                            <div class="member-avatar">MV</div>
+                            <div class="member-name">Marco Vázquez</div>
+                            <div class="member-role">Systems Architect (Gen X)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="ai-mentor-section">
+                        <h4>🤖 Your AI Mentor: Elon Musk</h4>
+                        <p style="font-size: 1.1rem; line-height: 1.6;">
+                            "Think big, start small, move fast. Focus on solutions that can scale to benefit millions while 
+                            being sustainable and economically viable. Remember, the best part is no part - simplify your 
+                            approach and challenge conventional thinking about energy systems."
+                        </p>
+                        <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 15px;">
+                            <strong>Specialties:</strong> Sustainable innovation, scalable systems, disruptive thinking
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </section>
+
+    <!-- Session Modal -->
+    <div id="sessionModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSession()">&times;</span>
+            
+            <!-- Step 1: Basic Info -->
+            <div class="session-step active" id="step1">
+                <h3>Welcome! Let's get started</h3>
+                <div class="form-group">
+                    <label for="userName">Your Name</label>
+                    <input type="text" id="userName" placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="userCompany">Company</label>
+                    <input type="text" id="userCompany" placeholder="Enter your company name">
+                </div>
+                <div class="form-group">
+                    <label for="userWorkstation">Workstation/Role</label>
+                    <input type="text" id="userWorkstation" placeholder="e.g., Frontend Developer, Product Manager">
+                </div>
+                <div class="step-buttons">
+                    <button class="step-btn primary" onclick="nextStep()">Next</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Age and Experience -->
+            <div class="session-step" id="step2">
+                <h3>Tell us about yourself</h3>
+                <div class="form-group">
+                    <label for="userAge">Age Range</label>
+                    <select id="userAge">
+                        <option value="">Select your age range</option>
+                        <option value="18-25">18-25 years (Gen Z)</option>
+                        <option value="26-35">26-35 years (Millennial)</option>
+                        <option value="36-45">36-45 years (Gen X)</option>
+                        <option value="46+">46+ years (Baby Boomer)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Years of Experience</label>
+                    <select id="userExperience">
+                        <option value="">Select experience level</option>
+                        <option value="0-2">0-2 years (Junior)</option>
+                        <option value="3-5">3-5 years (Mid-level)</option>
+                        <option value="6-10">6-10 years (Senior)</option>
+                        <option value="10+">10+ years (Expert)</option>
+                    </select>
+                </div>
+                <div class="step-buttons">
+                    <button class="step-btn" onclick="previousStep()">Previous</button>
+                    <button class="step-btn primary" onclick="nextStep()">Next</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Tech Interests -->
+            <div class="session-step" id="step3">
+                <h3>What tech trends interest you?</h3>
+                <p>Select all that apply:</p>
+                <div class="tech-interests">
+                    <div class="interest-card" onclick="toggleInterest(this)" data-interest="ai">
+                        <strong>🤖 AI/ML</strong>
+                        <p>Artificial Intelligence & Machine Learning</p>
+                    </div>
+                    <div class="interest-card" onclick="toggleInterest(this)" data-interest="blockchain">
+                        <strong>⛓️ Blockchain</strong>
+                        <p>Cryptocurrency & Web3</p>
+                    </div>
+                    <div class="interest-card" onclick="toggleInterest(this)" data-interest="cloud">
+                        <strong>☁️ Cloud Computing</strong>
+                        <p>AWS, Azure, DevOps</p>
+                    </div>
+                    <div class="interest-card" onclick="toggleInterest(this)" data-interest="mobile">
+                        <strong>📱 Mobile Development</strong>
+                        <p>React Native, Flutter</p>
+                    </div>
+                    <div class="interest-card" onclick="toggleInterest(this)" data-interest="iot">
+                        <strong>🌐 IoT</strong>
+                        <p>Internet of Things</p>
+                    </div>
+                    <div class="interest-card" onclick="toggleInterest(this)" data-interest="cybersecurity">
+                        <strong>🔒 Cybersecurity</strong>
+                        <p>Security & Privacy</p>
+                    </div>
+                </div>
+                <div class="step-buttons">
+                    <button class="step-btn" onclick="previousStep()">Previous</button>
+                    <button class="step-btn primary" onclick="nextStep()">Next</button>
+                </div>
+            </div>
+
+            <!-- Step 4: Implementation Ideas -->
+            <div class="session-step" id="step4">
+                <h3>What implementations do you want to add?</h3>
+                <div class="form-group">
+                    <label for="implementation1">Implementation Idea 1</label>
+                    <textarea id="implementation1" placeholder="Describe your first implementation idea..." rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="implementation2">Implementation Idea 2 (Optional)</label>
+                    <textarea id="implementation2" placeholder="Describe your second implementation idea..." rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="implementation3">Implementation Idea 3 (Optional)</label>
+                    <textarea id="implementation3" placeholder="Describe your third implementation idea..." rows="3"></textarea>
+                </div>
+                <div class="step-buttons">
+                    <button class="step-btn" onclick="previousStep()">Previous</button>
+                    <button class="step-btn primary" onclick="submitSession()">Submit</button>
+                </div>
+            </div>
+
+            <!-- Completion Step -->
+            <div class="session-step" id="stepComplete">
+                <h3>🎉 Welcome to Innovation Loop Weeks!</h3>
+                <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px;">
+                    Thank you for joining our platform! Your profile has been created and you're now part of our innovation community.
+                </p>
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                    <h4>Next Steps:</h4>
+                    <ul style="margin-left: 20px; color: #636e72;">
+                        <li>Check your email for your personalized dashboard access</li>
+                        <li>Explore current innovation challenges</li>
+                        <li>Connect with your assigned team members</li>
+                        <li>Start collaborating on exciting projects!</li>
+                    </ul>
+                </div>
+                <div class="step-buttons">
+                    <button class="step-btn primary" onclick="closeSession()">Start Exploring</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo">
+        <div class="container">
+            <h2 class="section-title">Experience the Platform</h2>
+            <div class="demo-container">
+                <div class="demo-form">
+                    <h3>Submit Your Innovation Idea</h3>
+                    <div class="success-message" id="successMessage">
+                        🎉 Your idea has been submitted successfully! It will be reviewed by our senior team.
+                    </div>
+                    <form id="ideaForm">
+                        <div class="form-group">
+                            <label for="ideaTitle">Idea Title</label>
+                            <input type="text" id="ideaTitle" name="ideaTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <select id="category" name="category" required>
+                                <option value="">Select a category</option>
+                                <option value="devops">DevOps</option>
+                                <option value="ux">UX/UI</option>
+                                <option value="scalability">Scalability</option>
+                                <option value="ai">AI/ML</option>
+                                <option value="security">Security</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea id="description" name="description" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="impact">Expected Impact</label>
+                            <textarea id="impact" name="impact" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Submit Idea</button>
+                    </form>
+                </div>
+                <div class="voting-section">
+                    <h3>Vote on Current Ideas</h3>
+                    <div class="idea-card">
+                        <h4>AI-Powered Code Review Assistant</h4>
+                        <p><strong>Category:</strong> AI/ML</p>
+                        <p>An AI tool that provides real-time code review suggestions and identifies potential bugs before deployment.</p>
+                        <div class="vote-buttons">
+                            <button class="vote-btn" onclick="vote(this, 'feasible')">Feasible</button>
+                            <button class="vote-btn" onclick="vote(this, 'promising')">Promising</button>
+                            <button class="vote-btn" onclick="vote(this, 'needs-work')">Needs Work</button>
+                        </div>
+                        <div class="vote-count">Current votes: 12 Feasible, 8 Promising, 3 Needs Work</div>
+                    </div>
+                    <div class="idea-card">
+                        <h4>Micro-Frontend Architecture Migration</h4>
+                        <p><strong>Category:</strong> Scalability</p>
+                        <p>Gradual migration to micro-frontends to improve development velocity and team independence.</p>
+                        <div class="vote-buttons">
+                            <button class="vote-btn" onclick="vote(this, 'feasible')">Feasible</button>
+                            <button class="vote-btn" onclick="vote(this, 'promising')">Promising</button>
+                            <button class="vote-btn" onclick="vote(this, 'needs-work')">Needs Work</button>
+                        </div>
+                        <div class="vote-count">Current votes: 15 Feasible, 10 Promising, 2 Needs Work</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Success Stories</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "Innovation Loop Weeks transformed our development culture. Our Gen Z developers now feel heard, and our senior engineers are energized by fresh perspectives. We've implemented 3 major innovations that increased our deployment speed by 40%."
+                    </p>
+                    <div class="testimonial-author">Maria Rodriguez</div>
+                    <div class="testimonial-company">CTO, TechMéxico Solutions</div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "The AI mentorship component is genius. Having 'Steve Jobs' guide our UX team while 'Linus Torvalds' mentors our backend developers created an unprecedented learning environment. Our innovation cycles are now 60% faster."
+                    </p>
+                    <div class="testimonial-author">Carlos Mendoza</div>
+                    <div class="testimonial-company">Head of Innovation, Fintech Guadalajara</div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "Before Innovation Loop Weeks, we had generational silos. Now we have cross-generational innovation powerhouses. The anonymous submission process removed hierarchical barriers, and the results speak for themselves."
+                    </p>
+                    <div class="testimonial-author">Ana Gutierrez</div>
+                    <div class="testimonial-company">Engineering Director, Startup Monterrey</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Out of the Box</h2>
+                    <p>
+                        We are a tech innovation company passionate about creating solutions that make Mexico better. Our mission is to bridge generational gaps in technology teams and accelerate innovation through structured collaboration.
+                    </p>
+                    <p>
+                        Founded on the principle that diverse perspectives drive breakthrough innovations, we've developed the Innovation Loop Weeks platform to help companies harness the unique strengths of every generation in their tech teams.
+                    </p>
+                    <p>
+                        <strong>Our Vision:</strong> A Mexico where every tech team operates as a unified innovation engine, regardless of generational differences.
+                    </p>
+                </div>
+                <div class="about-image">
+                    <div style="width: 400px; height: 300px; background: linear-gradient(135deg, #6c5ce7, #a29bfe); border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; text-align: center; margin: 0 auto;">
